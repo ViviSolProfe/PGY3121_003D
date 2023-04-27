@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+    <title>API</title>
+    <script>
+        $(document).ready(function(){
+
+            $("#datos").focusin(function(){
+
+                $.get("https://jsonplaceholder.typicode.com/posts", function(data){
+
+                    $.each(data,function(i,item){
+
+                        $("#apunte").append("<tr><td>"+ item.userId+ "</td><td>"+ item.id + "</td><td>"+
+                            item.title+ "</td><td>"+ item.body + "</td></tr>");
+                    });
+
+                });
+
+            });
+
+        });
+
+
+
+        /*
+        $(document).ready(function(){
+            $("#datos").focusin(function(){
+
+                $.get("https://jsonplaceholder.typicode.com/posts",function(data){
+
+                    $.each(data,function(i,item){
+                        $("#apunte").append("<tr><td>"+item.userId+"</td><td>">
+                            +item.id+"</td><td>"+item.title+"</td><td>"+ item.body+"</td></tr>");
+                    });
+                });
+            });
+        });*/
+
+
+
+
+
+    </script>
+</head>
+<body>
+    <div class="table-responsive">
+        <h2>GUIA API</h2>
+        <input type="button" id="datos" value="Mostrar Datos" class="btn btn-success"><br>
+        <table class="table" id="apunte">
+          <thead>
+              <th> ID Usuario </th>
+              <th> ID </th>  
+              <th> Titulo </th>
+              <th> Descripción </th>      
+          </thead>
+          <tbody>
+              
+          </tbody>
+        </table>
+      </div>
+
+
+</body>
+</html>
